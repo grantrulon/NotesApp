@@ -1,0 +1,61 @@
+
+.notes-list {
+    max-height: calc(100vh - 50px);
+    overflow: auto;
+    // padding-right: 10px
+}
+
+.selection-control-bar {
+    display: flex;
+    padding: 5px;
+    padding-right: 10px;
+    // background-color: rgb(196, 196, 113);
+    justify-content: space-between;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    color: #fff;
+}
+
+button:hover {
+    color:  #2a2a2a;
+}
+
+.edit-retrieve-toggle {
+    transform: scale(0.75);
+    background-color: #654F69;
+}
+
+
+.mat-button-toggle {
+    background-color: #F1E3E4;
+    color: black !important;
+}
+
+.mat-button-toggle-checked {
+    background-color: #654F69 !important;
+    color: #fff !important;
+}
+
+.search-input {
+    outline: none;
+    border: none;
+
+    font-size: 18px;
+    color: #1C1D21;
+    background-color: #F1E3E4;
+    padding: 10px;
+    text-overflow: ellipsis;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

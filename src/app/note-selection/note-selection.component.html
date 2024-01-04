@@ -1,0 +1,17 @@
+<div class="notes-list">
+    <div class="selection-control-bar">
+        <button *ngIf="notesService.noteSelectionMode == 'Edit'" (click)="handleAddNote()" matTooltip="Add Note">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add" id="person-icon"></mat-icon>
+        </button>
+        <div></div>
+        <mat-button-toggle-group class="edit-retrieve-toggle" name="fontStyle" aria-label="Font Style" >
+            <mat-button-toggle checked="true" (click)="notesService.changeEditRetrieveToggle('Edit')">Edit</mat-button-toggle>
+            <mat-button-toggle (click)="notesService.changeEditRetrieveToggle('Retrieve')">Retrieve</mat-button-toggle>
+            <mat-button-toggle (click)="notesService.changeEditRetrieveToggle('Search')">Search</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div *ngIf="notesService.noteSelectionMode == 'Search'" class="search-bar-container">
+        <input [(ngModel)]="searchInputData" (input)="handleSearchInput($event)" class="search-input" matInput #first>
+    </div>
+    <app-note *ngFor="let note of notesService.noteSelectionMode == 'Edit' ? notes : (notesService.noteSelectionMode == 'Retrieve' ?  retrievedNotes : searchedNotes)" [data]="note"></app-note>
+</div>

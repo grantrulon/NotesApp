@@ -1,0 +1,32 @@
+<div *ngIf="currentNote != null" class="editor-component">
+    <div *ngIf="detailsOpen" class="note-details-menu">
+        <div>
+            <button matTooltip="Delete Note" *ngIf="!currentNote.readOnly" (click)="handleDeleteClick()"
+                class="trash-button">
+                <mat-icon>delete_outline</mat-icon>
+            </button>
+            <button matTooltip="Save Note" *ngIf="!currentNote.readOnly" [disabled]="currentNote.isPersisted" [ngStyle]="{ 'color': currentNote.isPersisted ? '#a5a5a5' : '#2a2a2a'}" (click)="handleSaveClick()"
+                class="trash-button">
+                <mat-icon>save</mat-icon>
+            </button>
+        </div>
+        <div *ngIf="currentNote.readOnly"></div>
+        <input matInput [readonly]="currentNote.readOnly"  (input)="handleTitleChange($event)"  class="title-input"
+            value="{{ currentNote ? currentNote.title : '' }}" #titleInput>
+        <div></div>
+    </div>
+    <div id="editor-text-area" [innerHTML]="data"  contenteditable="false" (keyup.control.s)="handleSaveKeyEvent($event)" (input)="handleDataUpdate($event)" (click)="handleEditorClick()" (focus)="handleEditorFocus()" (focusout)="handleEditorUnfocus()" #editorText>
+    </div>
+    <button matTooltip="Note Details" class="details-button" (click)="handleDetailsClick()">
+        <mat-icon *ngIf="!detailsOpen">keyboard_arrow_left</mat-icon>
+        <mat-icon *ngIf="detailsOpen">keyboard_arrow_down</mat-icon>
+    </button>
+</div>
+
+<div *ngIf="isAuthenticated == false" class="editor-component">
+    <h2><a (click)="handleLoginClick()">Login</a> to continue</h2> 
+</div>
+
+<div *ngIf="currentNote == null && isAuthenticated == true" class="editor-component">
+    <h2>No Note Selected!</h2>
+</div>

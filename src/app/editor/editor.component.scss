@@ -1,0 +1,85 @@
+
+.editor-component {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // overflow: hidden;
+    overflow-y: auto;
+    max-height: calc(100vh - 50px);
+
+    // border-left: 2px solid rgb(86, 86, 86);
+}
+
+#editor-text-area {
+    width: 95%;
+    height: 95%;
+    outline: none;
+    resize: none;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+
+    white-space: pre-wrap;
+
+    padding: 0px;
+    margin: 5px;
+    border: 0px solid transparent;
+    line-height: 1.5;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #1C1D21;
+    background-color: #F1E3E4;
+}
+
+.trash-button {
+    all: unset;
+    justify-self: left;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.title-input {
+    outline: none;
+    border: none;
+
+    font-size: 18px;
+    color: #1C1D21;
+    background-color: #F1E3E4;
+    padding: 10px;
+    text-overflow: ellipsis;
+}
+
+.details-button {
+    all: unset;
+    position: absolute;
+    right: 5px;
+    top: 60px;
+    cursor: pointer;
+
+}
+
+.note-details-menu {
+    background-color: #CCBCBC;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+}
+
+
+.details-form {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+a {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}

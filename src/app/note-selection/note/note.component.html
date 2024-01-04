@@ -1,0 +1,19 @@
+<mat-card class="note-card" [ngClass]="{'selected': currentNoteId === data.noteId}" (click)="onNoteClick()">
+    <div class="content-container">
+        <div class="content-title">
+            <div class="title">
+                {{data.title}}
+            </div>
+        </div>
+        <div class="content-date">
+            <p *ngIf="!data.readOnly">
+                {{data.dateCreated.getMonth()}}/{{data.dateCreated.getDay()}}/{{data.dateCreated.getFullYear()}}
+            </p>
+        </div>
+        <div class="content-unsaved-icon">
+            <div *ngIf="!data.isPersisted">
+                <mat-icon class="unsaved-icon">brightness_1</mat-icon>
+            </div>
+        </div>
+    </div>
+</mat-card>
